@@ -1,0 +1,77 @@
+# Fork-only (Moiztermind/photocraft): every push to `moiztermind/stable` builds an unsigned
+# Windows x64 photocraft.exe and replaces the rolling "stable" pre-release, which the other PCs'
+# updater (photocraft-workshop/updater) downloads. Never part of an upstream PR.
+name: Moiz stable build
+
+on:
+  push:
+    branches: [moiztermind/stable]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: moiz-stable
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: 0
+  PHOTOCRAFT_BUILD_SHA: ${{ github.sha }}
+  CRAFT_FONTS_REF: abb83316d96aa59c1cf64784289e378fe9fa5695
+
+jobs:
+  windows:
+    if: github.repository == 'Moiztermind/photocraft'
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check out craft-fonts (embedded fonts)
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: storytold/craft-fonts
+          ref: ${{ env.CRAFT_FONTS_REF }}
+          path: craft-fonts
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: moiz-stable-windows-x64
+      - name: Build
+        env:
+          CRAFT_FONTS_DIR: ${{ github.workspace }}/craft-fonts
+        run: cargo build --release -p photocraft
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist | Out-Null
+          Compress-Archive -Path target/release/photocraft.exe -DestinationPath dist/photocraft-windows-x64.zip
+          $hash = (Get-FileHash dist/photocraft-windows-x64.zip -Algorithm SHA256).Hash.ToLower()
+          "$env:GITHUB_SHA $hash" | Out-File -Encoding ascii -NoNewline dist/stable.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stable
+          path: dist/*
+          if-no-files-found: error
+
+  publish:
+    needs: windows
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: stable
+          path: dist
+      - name: Replace the rolling "stable" pre-release
+        working-directory: dist
+        run: |
+          gh release delete stable --cleanup-tag --yes 2>/dev/null || true
+          gh release create stable --prerelease --target "$GITHUB_SHA" \
+            --title "Moiz stable (${GITHUB_SHA::9})" \
+            --notes "Unsigned Windows x64 build of moiztermind/stable at ${GITHUB_SHA}. Not an official PhotoCraft release." \
+            -- photocraft-windows-x64.zip stable.txt

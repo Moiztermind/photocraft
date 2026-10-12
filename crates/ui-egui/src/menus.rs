@@ -1463,8 +1463,8 @@ pub fn apply_workspace(app: &mut PhotocraftApp) {
         // Color includes Swatches; Navigator keeps the pixel canvas easy to inspect.
         "Pixel Art" => (true, true, true, false, false),
         "Motion" => (false, false, true, false, true),
-        // Layers and Properties beside the floating Sublimation panel.
-        "Sublimation" => (true, false, true, true, true),
+        // The Navigator group (with the Sublimation tab), Properties and Layers.
+        "Sublimation" => (true, false, true, false, true),
         _ => (false, true, true, false, true),
     };
     p.navigator = nav;
@@ -1479,6 +1479,8 @@ pub fn apply_workspace(app: &mut PhotocraftApp) {
     if app.ui.workspace == "Sublimation" {
         app.ui.dock.show_tab(crate::dock::Group::Navigator, crate::sublimation_ui::TAB, false);
         app.ui.dock_tabs.navigator = crate::sublimation_ui::TAB;
+        // Tall enough for every Sublimation button without scrolling.
+        app.ui.dock.heights.insert(crate::dock::Group::Navigator, crate::sublimation_ui::HEIGHT);
     } else if app.ui.dock_tabs.navigator == crate::sublimation_ui::TAB {
         app.ui.dock_tabs.navigator = 0;
     }

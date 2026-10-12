@@ -108,6 +108,9 @@ pub fn panel(app: &mut PhotocraftApp, ui: &mut egui::Ui) {
 /// The Sublimation tab's index in the Navigator group.
 pub const TAB: usize = 3;
 
+/// The Navigator group's height in the Sublimation workspace (points, tab strip included).
+pub const HEIGHT: f32 = 330.0;
+
 #[cfg(test)]
 mod tests {
     use super::*;

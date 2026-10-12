@@ -137,6 +137,7 @@ fn workspace_name(id: &str) -> Option<&'static str> {
         "graphicAndWeb" => "Graphic and Web",
         "pixelArt" => "Pixel Art",
         "motion" => "Motion",
+        "sublimation" => "Sublimation",
         _ => return None,
     })
 }
@@ -1462,6 +1463,8 @@ pub fn apply_workspace(app: &mut PhotocraftApp) {
         // Color includes Swatches; Navigator keeps the pixel canvas easy to inspect.
         "Pixel Art" => (true, true, true, false, false),
         "Motion" => (false, false, true, false, true),
+        // Layers and Properties beside the floating Sublimation panel.
+        "Sublimation" => (true, false, true, true, true),
         _ => (false, true, true, false, true),
     };
     p.navigator = nav;
@@ -1470,6 +1473,7 @@ pub fn apply_workspace(app: &mut PhotocraftApp) {
     p.history = history;
     p.properties = props;
     p.character = app.ui.workspace == "Graphic and Web";
+    p.sublimation = app.ui.workspace == "Sublimation";
     // Timeline is a floating panel, not a dock group. Showing it does not create or edit
     // a document timeline; changing away from Motion closes it just like its Close button.
     app.ui.timeline.open = app.ui.workspace == "Motion";

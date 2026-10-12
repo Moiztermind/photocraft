@@ -413,6 +413,9 @@ pub struct Panels {
     /// floating window rather than a modal so the canvas stays usable while a gradient is edited.
     #[serde(default)]
     pub gradient_editor: bool,
+    /// The Sublimation workspace's floating panel (bleed, mirror, profile, proof, print).
+    #[serde(default)]
+    pub sublimation: bool,
 }
 
 impl Default for Panels {
@@ -434,6 +437,7 @@ impl Default for Panels {
             rail: true,
             menu_bar: true,
             gradient_editor: false,
+            sublimation: false,
         }
     }
 }
@@ -1125,6 +1129,9 @@ pub struct UiState {
     /// View / Window / Type preferences: screen mode, Extras, Show and Snap To, flip, arrangement.
     #[serde(default)]
     pub view: crate::view_cmds::ViewOptions,
+    /// The Sublimation panel's bleed settings.
+    #[serde(default)]
+    pub sublimation: crate::sublimation_ui::SublimationOptions,
     pub panels: Panels,
     /// Views per open document (index-aligned with the session's documents).
     pub views: Vec<View>,
@@ -1241,6 +1248,7 @@ impl Default for UiState {
             pattern_stamp_phase: None,
             extras: Extras::default(),
             view: Default::default(),
+            sublimation: Default::default(),
             actions: Default::default(),
             layer_comp_selected: None,
             presets_ui: Default::default(),

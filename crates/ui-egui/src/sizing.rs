@@ -146,7 +146,9 @@ fn dim_field(ui: &mut egui::Ui, f: &mut Map<String, Value>, key: &str, orig_key:
     let mut v = to_unit(px, &unit, orig, res) as f32;
     let range = if unit == "px" { -300000.0..=300000.0 } else { -30000.0..=30000.0 };
     // Each unit keeps its own precision: whole pixels, 3 places for inches, 2 for cm/mm/picas (#2434).
-    let changed = crate::widgets::value_field_prec(ui, &mut v, range, "", 90.0, crate::widgets::unit_decimals(&unit)).changed();
+    // A typed unit (`2in` while in pixels) converts at the dialog's resolution.
+    let units = crate::widgets::FieldUnits { unit: crate::widgets::unit_of_key(&unit), dpi: res, ppi: 72.0 };
+    let changed = crate::widgets::value_field_units(ui, &mut v, range, 90.0, crate::widgets::unit_decimals(&unit), units).changed();
     if changed {
         let px = from_unit(v as f64, &unit, orig, res);
         f.insert(key.into(), json!(if unit == "px" { px.round() } else { px }));
@@ -347,11 +349,25 @@ fn canvas_size(ui: &mut egui::Ui, f: &mut Map<String, Value>) {
             ("white".to_string(), tl!("White")),
             ("black".to_string(), tl!("Black")),
             ("transparent".to_string(), tl!("Transparent")),
+            // A print bleed: the new area continues the image from its edges.
+            ("edge".to_string(), tl!("Edge Pixels")),
+            ("mirror".to_string(), tl!("Mirror")),
         ];
         if crate::widgets::dropdown(ui, "cs-ext", &mut cur, &opts, 140.0) {
+            // Bleeds want the trim line: guides on by default for the edge modes.
+            f.insert("guides".into(), json!(matches!(cur.as_str(), "edge" | "mirror")));
             f.insert("extensionColor".into(), json!(cur));
         }
     });
+    if matches!(f.get("extensionColor").and_then(Value::as_str), Some("edge" | "mirror")) {
+        ui.horizontal(|ui| {
+            label(ui, "", 150.0);
+            let mut on = f.get("guides").and_then(Value::as_bool).unwrap_or(false);
+            if crate::widgets::checkbox(ui, &mut on, tl!("Guides at the old edges")).changed() {
+                f.insert("guides".into(), json!(on));
+            }
+        });
+    }
 }
 
 /// 3×3 anchor picker; arrows point away from the anchor in the directions the canvas grows.

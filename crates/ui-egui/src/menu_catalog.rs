@@ -733,6 +733,7 @@ pub static CATALOG: &[(&[&str], &str, Option<&str>, &str)] = &[
     (&["Window", "Workspace"], "Pixel Art", None, "window.workspace.pixelArt"),
     (&["Window", "Workspace"], "Graphic and Web", None, "window.workspace.graphicAndWeb"),
     (&["Window", "Workspace"], "Motion", None, "window.workspace.motion"),
+    (&["Window", "Workspace"], "Sublimation", None, "window.workspace.sublimation"),
     (&["Window", "Workspace"], "---", None, "---"),
     (&["Window", "Workspace"], "Reset Workspace", None, "window.workspace.resetWorkspace"),
     (&["Window", "Workspace"], "New Workspace…", None, "window.workspace.newWorkspace"),

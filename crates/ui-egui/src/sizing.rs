@@ -349,11 +349,25 @@ fn canvas_size(ui: &mut egui::Ui, f: &mut Map<String, Value>) {
             ("white".to_string(), tl!("White")),
             ("black".to_string(), tl!("Black")),
             ("transparent".to_string(), tl!("Transparent")),
+            // A print bleed: the new area continues the image from its edges.
+            ("edge".to_string(), tl!("Edge Pixels")),
+            ("mirror".to_string(), tl!("Mirror")),
         ];
         if crate::widgets::dropdown(ui, "cs-ext", &mut cur, &opts, 140.0) {
+            // Bleeds want the trim line: guides on by default for the edge modes.
+            f.insert("guides".into(), json!(matches!(cur.as_str(), "edge" | "mirror")));
             f.insert("extensionColor".into(), json!(cur));
         }
     });
+    if matches!(f.get("extensionColor").and_then(Value::as_str), Some("edge" | "mirror")) {
+        ui.horizontal(|ui| {
+            label(ui, "", 150.0);
+            let mut on = f.get("guides").and_then(Value::as_bool).unwrap_or(false);
+            if crate::widgets::checkbox(ui, &mut on, tl!("Guides at the old edges")).changed() {
+                f.insert("guides".into(), json!(on));
+            }
+        });
+    }
 }
 
 /// 3×3 anchor picker; arrows point away from the anchor in the directions the canvas grows.

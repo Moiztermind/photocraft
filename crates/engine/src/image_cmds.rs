@@ -360,7 +360,10 @@ fn canvas_size(s: &mut Session, p: &Value) -> Result<Value> {
     let (ax, ay) = anchor_factors(p.get("anchor").and_then(Value::as_str).unwrap_or("center"));
     let dx = ((nw as f64 - ow) * ax).round() as i32;
     let dy = ((nh as f64 - oh) * ay).round() as i32;
+    let ext_id = p.get("extensionColor").and_then(Value::as_str).unwrap_or("background");
+    let edge = crate::canvas_bleed::EdgeFill::from_id(ext_id);
     let ext = extension_color(s, p);
+    let guides = p.get("guides").and_then(Value::as_bool).unwrap_or(false);
     s.set_sampler_map(photocraft_geom::Affine::translate(f64::from(dx), f64::from(dy)));
     s.edit("Canvas Size", |doc, _| {
         translate_doc(doc, "image.canvasSize", dx, dy)?;
@@ -368,6 +371,16 @@ fn canvas_size(s: &mut Session, p: &Value) -> Result<Value> {
         crate::canvas_geom::refresh(doc, crate::canvas_geom::Refresh::Shapes);
         let canvas = doc.bounds();
         let old = Rect::from_xywh(dx, dy, ow as u32, oh as u32);
+        if guides {
+            // Guides on the old edges: the trim line of a bleed.
+            doc.guides.vertical.extend([f64::from(old.x0), f64::from(old.x1)]);
+            doc.guides.horizontal.extend([f64::from(old.y0), f64::from(old.y1)]);
+        }
+        // Edge Pixels / Mirror extend every pixel layer from its own edges (a print bleed).
+        if let Some(mode) = edge {
+            crate::canvas_bleed::extend_edges(&mut doc.layers, old, canvas, mode);
+            return Ok(());
+        }
         // A Background cannot contain transparent pixels. When a transparent
         // extension adds canvas area, make it a normal paintable layer first.
         // A shrink or no-op resize must not silently convert the Background.
@@ -703,7 +716,7 @@ pub fn specs() -> Vec<CommandSpec> {
             "image.canvasSize",
             "Canvas Size…",
             ["Image"],
-            r##"{"width":px,"height":px,"relative":bool=false,"anchor":"topLeft|top|topRight|left|center|right|bottomLeft|bottom|bottomRight"="center","extensionColor":"background|foreground|white|black|transparent|#rrggbb"="background"}"##,
+            r##"{"width":px,"height":px,"relative":bool=false,"anchor":"topLeft|top|topRight|left|center|right|bottomLeft|bottom|bottomRight"="center","extensionColor":"background|foreground|white|black|transparent|edge|mirror|#rrggbb"="background","guides":bool=false} (edge/mirror fill the new area from each pixel layer's edges, for a print bleed; guides marks the old edges)"##,
             has_doc,
             canvas_size
         ),
@@ -978,6 +991,48 @@ mod tests {
         let mut s = session();
         s.execute("image.canvasSize", json!({"width": 20, "height": 10, "relative": true, "anchor": "center"})).unwrap();
         assert_eq!(doc(&s).layers[1].surface().unwrap().content_bounds(), Rect::new(20, 10, 30, 20));
+    }
+
+    #[test]
+    fn canvas_size_edge_and_mirror_bleed_from_the_image_edges() {
+        for depth in [8, 16] {
+            for (mode, left, right) in [("edge", 0.0, 1.0), ("mirror", 2.0 / 3.0, 1.0 / 3.0)] {
+                let mut s = Session::new();
+                s.execute("file.new", json!({"width": 4, "height": 2, "depth": depth})).unwrap();
+                s.execute("layer.new.layer", json!({})).unwrap();
+                s.edit("paint", |doc, active| {
+                    // Background columns 0..4 run red 0, 1/3, 2/3, 1.
+                    if let LayerContent::Raster(bg) = &mut doc.layers[0].content {
+                        for x in 0..4 {
+                            bg.fill_rect(Rect::new(x, 0, x + 1, 2), &[x as f32 / 3.0, 0.0, 0.0, 1.0]);
+                        }
+                    }
+                    // A layer with pixels hanging past the left edge: they are kept, not refilled.
+                    let l = doc.layer_mut(active.unwrap()).unwrap();
+                    l.surface_mut().unwrap().fill_rect(Rect::new(-1, 0, 1, 2), &[0.0, 0.0, 1.0, 1.0]);
+                    Ok(())
+                })
+                .unwrap();
+                s.execute("image.canvasSize", json!({"width": 4, "height": 2, "relative": true, "extensionColor": mode, "guides": true}))
+                    .unwrap();
+                let d = doc(&s);
+                assert_eq!(d.size, Size::new(8, 4));
+                assert!(crate::extra_cmds::is_background(&d.layers[0]), "the Background stays a Background");
+                let bg = d.layers[0].surface().unwrap();
+                let red = |x, y| (bg.pixel(x, y)[0] * 1000.0).round() / 1000.0;
+                let r = |v: f32| (v * 1000.0).round() / 1000.0;
+                assert_eq!((red(0, 1), red(7, 2)), (r(left), r(right)), "{mode} {depth}");
+                assert_eq!(bg.pixel(0, 0)[3], 1.0, "corners are filled ({mode})");
+                let top = layer_pixels(d, 1);
+                assert_eq!(top.pixel(1, 1), vec![0.0, 0.0, 1.0, 1.0], "overflow kept ({mode})");
+                assert_eq!(d.guides.vertical, vec![2.0, 6.0]);
+                assert_eq!(d.guides.horizontal, vec![1.0, 3.0]);
+            }
+        }
+    }
+
+    fn layer_pixels(d: &Document, i: usize) -> &Surface {
+        d.layers[i].surface().unwrap()
     }
 
     #[test]

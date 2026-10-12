@@ -2652,3 +2652,24 @@ cameraData	Lens	Objektiv
 	(No neutral color exists for {mode} mode.)	(Für den Modus {mode} gibt es keine neutrale Farbe.)
 	Apply mask to layer before removing?	Maske vor dem Entfernen auf die Ebene anwenden?
 	The layer or its mask changed. Drag the mask onto the Trash again.	Die Ebene oder ihre Maske hat sich geändert. Ziehen Sie die Maske erneut in den Papierkorb.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Anschnitt hinzufügen
+	Bleed	Anschnitt
+	Delete this print preset	Diese Druckvorgabe löschen
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	In den Druckeinstellungen… nicht zusätzlich Spiegelbild aktivieren: Die beiden Spiegelungen heben sich auf.
+	Edge Pixels	Randpixel
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Vergrößert die Arbeitsfläche auf allen Seiten, setzt das Bild fort und setzt Hilfslinien auf die Schnittlinie
+	Guides at the old edges	Hilfslinien an den alten Rändern
+	Last used settings	Zuletzt verwendete Einstellungen
+	Mirror	Spiegeln
+	Mirror Image	Bild spiegeln
+	New preset name (e.g. Mug 11oz)	Name der neuen Vorgabe (z. B. Mug 11oz)
+	No print preset named "{name}"	Keine Druckvorgabe namens „{name}“
+	Print Settings…	Druckeinstellungen…
+	Remember to turn off the printer's own colour management in Print Settings…	Druckereigenes Farbmanagement ausschalten in den Druckeinstellungen…
+	Save Preset	Vorgabe speichern
+	Save presets from the Print dialog	Vorgaben werden im Dialog „Drucken“ gespeichert
+	Sublimation	Sublimation
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Der Drucker der Vorgabe, „{printer}“, ist nicht installiert: Wählen Sie einen Drucker und prüfen Sie die Druckeinstellungen…
+	set in Print Settings…	festgelegt in den Druckeinstellungen…

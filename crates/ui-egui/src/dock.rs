@@ -32,7 +32,7 @@ pub enum Group {
     Properties,
     /// Character | Paragraph (not in the default workspace; Window › Character opens it, #150).
     Character,
-    /// Navigator | Histogram | Info.
+    /// Navigator | Histogram | Info | Sublimation (the last only in the Sublimation workspace).
     Navigator,
     /// History | Actions | Layer Comps.
     History,
@@ -105,7 +105,7 @@ impl Group {
             Group::Color => &["Swatches", "Color", "Gradients", "Patterns"],
             Group::Properties => &["Properties", "Adjustments"],
             Group::Character => &["Character", "Paragraph"],
-            Group::Navigator => &["Navigator", "Histogram", "Info"],
+            Group::Navigator => &["Navigator", "Histogram", "Info", "Sublimation"],
             Group::History => &["History", "Actions", "Layer Comps"],
             Group::Layers => &["Layers", "Channels", "Paths"],
         }
@@ -157,7 +157,7 @@ impl Group {
 }
 
 /// Order, heights, collapsed state and visibility of individual dock tabs.
-#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(default)]
 pub struct DockLayout {
     /// Top-to-bottom order; a group missing here (say one added after the layout was saved)
@@ -168,13 +168,26 @@ pub struct DockLayout {
     /// Groups collapsed to their tab strip.
     pub collapsed: Vec<Group>,
     /// Names of tabs hidden by Close (not positions: Color/Swatches swap with the theme).
-    #[serde(skip_serializing_if = "BTreeMap::is_empty")]
+    /// Always saved: an empty map means the Sublimation tab was shown (it is hidden by default).
     pub hidden_tabs: BTreeMap<Group, Vec<String>>,
     /// Tab order per group, left to right, by name like `hidden_tabs` (#2272). A group missing
     /// here keeps its default order; unknown names are ignored and tabs missing from a list
     /// follow it in their default order. Anything unreadable falls back to the defaults.
     #[serde(rename = "tabOrder", alias = "tab_order", deserialize_with = "lenient_tab_order")]
     pub tab_order: BTreeMap<Group, Vec<String>>,
+}
+
+impl Default for DockLayout {
+    /// The Sublimation tab starts hidden: only the Sublimation workspace shows it.
+    fn default() -> Self {
+        Self {
+            order: Vec::new(),
+            heights: BTreeMap::new(),
+            collapsed: Vec::new(),
+            hidden_tabs: BTreeMap::from([(Group::Navigator, vec!["Sublimation".to_string()])]),
+            tab_order: BTreeMap::new(),
+        }
+    }
 }
 
 /// Read `tabOrder` keeping what makes sense: unknown groups, non-list values and non-string names

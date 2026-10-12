@@ -3030,3 +3030,24 @@ cameraData	Lens	Objectif
 	(No neutral color exists for {mode} mode.)	(Il n’existe aucune couleur neutre pour le mode {mode}.)
 	Apply mask to layer before removing?	Appliquer le masque au calque avant de le supprimer ?
 	The layer or its mask changed. Drag the mask onto the Trash again.	Le calque ou son masque a changé. Faites de nouveau glisser le masque sur la corbeille.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Ajouter un fond perdu
+	Bleed	Fond perdu
+	Delete this print preset	Supprimer ce paramètre prédéfini d'impression
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	Ne cochez pas aussi Image miroir dans Paramètres d'impression… : les deux retournements s'annulent.
+	Edge Pixels	Pixels du bord
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Agrandit la zone de travail de tous les côtés en prolongeant l'image, avec des repères sur le trait de coupe
+	Guides at the old edges	Repères sur les anciens bords
+	Last used settings	Derniers paramètres utilisés
+	Mirror	Miroir
+	Mirror Image	Image miroir
+	New preset name (e.g. Mug 11oz)	Nom du nouveau paramètre prédéfini (ex. Mug 11oz)
+	No print preset named "{name}"	Aucun paramètre prédéfini d'impression nommé « {name} »
+	Print Settings…	Paramètres d'impression…
+	Remember to turn off the printer's own colour management in Print Settings…	Pensez à désactiver la gestion des couleurs de l'imprimante dans Paramètres d'impression…
+	Save Preset	Enregistrer le paramètre prédéfini
+	Save presets from the Print dialog	Enregistrez des paramètres prédéfinis depuis la boîte de dialogue Imprimer
+	Sublimation	Sublimation
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	L'imprimante du paramètre prédéfini, « {printer} », n'est pas installée : choisissez une imprimante et vérifiez Paramètres d'impression…
+	set in Print Settings…	défini dans Paramètres d'impression…

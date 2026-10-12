@@ -3197,3 +3197,24 @@ cameraData	Lens	렌즈
 	(No neutral color exists for {mode} mode.)	({mode} 모드에는 중립 색상이 없습니다.)
 	Apply mask to layer before removing?	제거하기 전에 마스크를 레이어에 적용하시겠습니까?
 	The layer or its mask changed. Drag the mask onto the Trash again.	레이어 또는 마스크가 변경되었습니다. 마스크를 휴지통으로 다시 드래그하세요.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	도련 추가
+	Bleed	도련
+	Delete this print preset	이 인쇄 사전 설정 삭제
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	인쇄 설정…에서 미러 이미지를 함께 선택하지 마세요. 두 번 뒤집으면 서로 상쇄됩니다.
+	Edge Pixels	가장자리 픽셀
+	Grows the canvas on every side, continuing the image, with guides on the trim line	이미지를 이어서 캔버스를 모든 방향으로 넓히고 재단선에 안내선을 추가합니다
+	Guides at the old edges	이전 가장자리에 안내선
+	Last used settings	마지막으로 사용한 설정
+	Mirror	미러
+	Mirror Image	이미지 반전
+	New preset name (e.g. Mug 11oz)	새 사전 설정 이름(예: Mug 11oz)
+	No print preset named "{name}"	"{name}" 인쇄 사전 설정이 없습니다
+	Print Settings…	인쇄 설정…
+	Remember to turn off the printer's own colour management in Print Settings…	프린터 자체의 색상 관리를 끄세요: 인쇄 설정…
+	Save Preset	사전 설정 저장
+	Save presets from the Print dialog	인쇄 대화 상자에서 사전 설정을 저장하세요
+	Sublimation	승화 전사
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	사전 설정의 프린터 "{printer}"가 설치되어 있지 않습니다. 프린터를 선택하고 확인하세요: 인쇄 설정…
+	set in Print Settings…	설정 위치: 인쇄 설정…

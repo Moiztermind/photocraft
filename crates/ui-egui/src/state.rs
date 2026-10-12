@@ -413,9 +413,6 @@ pub struct Panels {
     /// floating window rather than a modal so the canvas stays usable while a gradient is edited.
     #[serde(default)]
     pub gradient_editor: bool,
-    /// The Sublimation workspace's floating panel (bleed, mirror, profile, proof, print).
-    #[serde(default)]
-    pub sublimation: bool,
 }
 
 impl Default for Panels {
@@ -437,7 +434,6 @@ impl Default for Panels {
             rail: true,
             menu_bar: true,
             gradient_editor: false,
-            sublimation: false,
         }
     }
 }

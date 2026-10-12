@@ -1473,7 +1473,15 @@ pub fn apply_workspace(app: &mut PhotocraftApp) {
     p.history = history;
     p.properties = props;
     p.character = app.ui.workspace == "Graphic and Web";
-    p.sublimation = app.ui.workspace == "Sublimation";
+    // The Sublimation tab sits with Navigator | Histogram | Info: the Sublimation workspace shows
+    // and opens on it, every other preset keeps it hidden
+    // (hidden in the default layout).
+    if app.ui.workspace == "Sublimation" {
+        app.ui.dock.show_tab(crate::dock::Group::Navigator, crate::sublimation_ui::TAB, false);
+        app.ui.dock_tabs.navigator = crate::sublimation_ui::TAB;
+    } else if app.ui.dock_tabs.navigator == crate::sublimation_ui::TAB {
+        app.ui.dock_tabs.navigator = 0;
+    }
     // Timeline is a floating panel, not a dock group. Showing it does not create or edit
     // a document timeline; changing away from Motion closes it just like its Close button.
     app.ui.timeline.open = app.ui.workspace == "Motion";

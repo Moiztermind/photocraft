@@ -3712,3 +3712,24 @@ cameraData	Lens	Об'єктив
 	(No neutral color exists for {mode} mode.)	(Для режиму «{mode}» немає нейтрального кольору.)
 	Apply mask to layer before removing?	Застосувати маску до шару перед видаленням?
 	The layer or its mask changed. Drag the mask onto the Trash again.	Шар або його маска змінилися. Перетягніть маску до кошика ще раз.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Додати виліт
+	Bleed	Виліт
+	Delete this print preset	Видалити цей набір друку
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	Не вмикайте також «Дзеркальне зображення» в налаштуваннях друку…: два віддзеркалення скасують одне одне.
+	Edge Pixels	Крайові пікселі
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Розширює полотно з усіх боків, продовжуючи зображення, і ставить напрямні по лінії обрізу
+	Guides at the old edges	Напрямні по старих краях
+	Last used settings	Останні налаштування
+	Mirror	Дзеркально
+	Mirror Image	Віддзеркалити зображення
+	New preset name (e.g. Mug 11oz)	Назва нового набору (наприклад, Mug 11oz)
+	No print preset named "{name}"	Немає набору друку з назвою «{name}»
+	Print Settings…	Налаштування друку…
+	Remember to turn off the printer's own colour management in Print Settings…	Не забудьте вимкнути керування кольором самого принтера в налаштуваннях друку…
+	Save Preset	Зберегти набір
+	Save presets from the Print dialog	Набори зберігаються в діалозі «Друк»
+	Sublimation	Сублімація
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Принтер набору «{printer}» не встановлено: виберіть принтер і перевірте налаштування друку…
+	set in Print Settings…	задано в налаштуваннях друку…

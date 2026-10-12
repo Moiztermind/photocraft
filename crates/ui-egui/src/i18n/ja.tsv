@@ -3624,3 +3624,24 @@ cameraData	Lens	レンズ
 	(No neutral color exists for {mode} mode.)	({mode} モードには中間色がありません。)
 	Apply mask to layer before removing?	削除する前にマスクをレイヤーに適用しますか？
 	The layer or its mask changed. Drag the mask onto the Trash again.	レイヤーまたはそのマスクが変更されました。もう一度マスクをゴミ箱にドラッグしてください。
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	裁ち落としを追加
+	Bleed	裁ち落とし
+	Delete this print preset	このプリントプリセットを削除
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	プリント設定…で「左右反転」もオンにしないでください。2 回の反転が打ち消し合います。
+	Edge Pixels	端のピクセル
+	Grows the canvas on every side, continuing the image, with guides on the trim line	画像を延長してカンバスを全方向に広げ、仕上がり線にガイドを引きます
+	Guides at the old edges	元の端にガイド
+	Last used settings	前回の設定
+	Mirror	ミラー
+	Mirror Image	左右反転
+	New preset name (e.g. Mug 11oz)	新しいプリセット名(例: Mug 11oz)
+	No print preset named "{name}"	プリントプリセット「{name}」はありません
+	Print Settings…	プリント設定…
+	Remember to turn off the printer's own colour management in Print Settings…	プリンター側のカラーマネジメントをオフにしてください: プリント設定…
+	Save Preset	プリセットを保存
+	Save presets from the Print dialog	プリセットはプリントダイアログで保存します
+	Sublimation	昇華転写
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	プリセットのプリンター「{printer}」がインストールされていません。プリンターを選んで確認してください: プリント設定…
+	set in Print Settings…	設定場所: プリント設定…

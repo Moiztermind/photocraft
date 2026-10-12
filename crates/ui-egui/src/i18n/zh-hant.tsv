@@ -2602,3 +2602,24 @@ cameraData	Lens	鏡頭
 	(No neutral color exists for {mode} mode.)	（{mode}模式沒有中性色。）
 	Apply mask to layer before removing?	移除之前將遮色片套用到圖層嗎？
 	The layer or its mask changed. Drag the mask onto the Trash again.	圖層或其遮色片已變更。請再次將遮色片拖曳到垃圾桶。
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	加入出血
+	Bleed	出血
+	Delete this print preset	刪除此列印預設
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	請勿在列印設定…中再勾選「鏡像」:兩次翻轉會互相抵銷。
+	Edge Pixels	邊緣像素
+	Grows the canvas on every side, continuing the image, with guides on the trim line	向各邊擴展版面並延續影像,在裁切線加上參考線
+	Guides at the old edges	在原邊緣加上參考線
+	Last used settings	上次使用的設定
+	Mirror	鏡像
+	Mirror Image	鏡像影像
+	New preset name (e.g. Mug 11oz)	新預設名稱(例如 Mug 11oz)
+	No print preset named "{name}"	沒有名為「{name}」的列印預設
+	Print Settings…	列印設定…
+	Remember to turn off the printer's own colour management in Print Settings…	請記得關閉印表機本身的色彩管理:列印設定…
+	Save Preset	儲存預設
+	Save presets from the Print dialog	在列印對話框中儲存預設
+	Sublimation	熱昇華
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	預設的印表機「{printer}」未安裝:請選擇印表機並檢查列印設定…
+	set in Print Settings…	設定位置:列印設定…

@@ -3649,3 +3649,24 @@ navigator	Zoom	Zvětšení
 	(No neutral color exists for {mode} mode.)	(Pro režim {mode} neexistuje neutrální barva.)
 	Apply mask to layer before removing?	Použít masku na vrstvu před odstraněním?
 	The layer or its mask changed. Drag the mask onto the Trash again.	Vrstva nebo její maska se změnila. Přetáhněte masku do koše znovu.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Přidat spadávku
+	Bleed	Spadávka
+	Delete this print preset	Odstranit tuto předvolbu tisku
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	V Nastavení tisku… nezaškrtávejte také Zrcadlový obraz: obě převrácení se navzájem zruší.
+	Edge Pixels	Okrajové pixely
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Zvětší plátno na všech stranách, obraz pokračuje dál, a přidá vodítka na ořezovou linku
+	Guides at the old edges	Vodítka na původních okrajích
+	Last used settings	Naposledy použité nastavení
+	Mirror	Zrcadlit
+	Mirror Image	Zrcadlit obraz
+	New preset name (e.g. Mug 11oz)	Název nové předvolby (např. Mug 11oz)
+	No print preset named "{name}"	Předvolba tisku „{name}“ neexistuje
+	Print Settings…	Nastavení tisku…
+	Remember to turn off the printer's own colour management in Print Settings…	Nezapomeňte vypnout vlastní správu barev tiskárny v Nastavení tisku…
+	Save Preset	Uložit předvolbu
+	Save presets from the Print dialog	Předvolby se ukládají v dialogu Tisk
+	Sublimation	Sublimace
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Tiskárna předvolby „{printer}“ není nainstalována: vyberte tiskárnu a zkontrolujte Nastavení tisku…
+	set in Print Settings…	nastaveno v Nastavení tisku…

@@ -3626,3 +3626,24 @@ cameraData	Lens	Obiektyw
 	(No neutral color exists for {mode} mode.)	(Dla trybu {mode} nie istnieje kolor neutralny.)
 	Apply mask to layer before removing?	Zastosować maskę do warstwy przed usunięciem?
 	The layer or its mask changed. Drag the mask onto the Trash again.	Warstwa lub jej maska uległa zmianie. Przeciągnij maskę ponownie do kosza.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Dodaj spad
+	Bleed	Spad
+	Delete this print preset	Usuń to ustawienie drukowania
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	Nie zaznaczaj też Odbicia lustrzanego w Ustawieniach drukowania…: dwa odbicia się znoszą.
+	Edge Pixels	Piksele krawędzi
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Powiększa obszar roboczy z każdej strony, kontynuując obraz, z liniami pomocniczymi na linii cięcia
+	Guides at the old edges	Linie pomocnicze na dawnych krawędziach
+	Last used settings	Ostatnio używane ustawienia
+	Mirror	Lustro
+	Mirror Image	Odbicie lustrzane
+	New preset name (e.g. Mug 11oz)	Nazwa nowego ustawienia (np. Mug 11oz)
+	No print preset named "{name}"	Brak ustawienia drukowania o nazwie „{name}”
+	Print Settings…	Ustawienia drukowania…
+	Remember to turn off the printer's own colour management in Print Settings…	Pamiętaj, aby wyłączyć zarządzanie kolorem samej drukarki w Ustawieniach drukowania…
+	Save Preset	Zapisz ustawienie
+	Save presets from the Print dialog	Ustawienia zapisuje się w oknie Drukuj
+	Sublimation	Sublimacja
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Drukarka ustawienia „{printer}” nie jest zainstalowana: wybierz drukarkę i sprawdź Ustawienia drukowania…
+	set in Print Settings…	ustawione w Ustawieniach drukowania…

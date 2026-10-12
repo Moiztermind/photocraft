@@ -566,7 +566,7 @@ fn closing_tabs_keeps_stable_names_across_themes_and_workspace_round_trips() {
     assert_eq!(restored, dock);
     // Window › Color (Studio index 1) brings back precisely that tab.
     restored.show_tab(Group::Color, 1, false);
-    assert!(restored.hidden_tabs.is_empty());
+    assert!(!restored.hidden_tabs.contains_key(&Group::Color));
     assert_eq!(restored.visible_tabs(Group::Color, false).len(), 4);
 }
 

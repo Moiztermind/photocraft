@@ -2693,3 +2693,24 @@ cameraData	Lens	Objetivo
 	(No neutral color exists for {mode} mode.)	(No existe un color neutro para el modo {mode}.)
 	Apply mask to layer before removing?	¿Aplicar la máscara a la capa antes de eliminarla?
 	The layer or its mask changed. Drag the mask onto the Trash again.	La capa o su máscara ha cambiado. Arrastre de nuevo la máscara a la papelera.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Añadir sangrado
+	Bleed	Sangrado
+	Delete this print preset	Eliminar este ajuste de impresión
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	No marques también Imagen reflejada en Ajustes de impresión…: los dos volteos se anulan.
+	Edge Pixels	Píxeles del borde
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Amplía el lienzo por todos los lados continuando la imagen, con guías en la línea de corte
+	Guides at the old edges	Guías en los bordes anteriores
+	Last used settings	Últimos ajustes usados
+	Mirror	Reflejo
+	Mirror Image	Reflejar imagen
+	New preset name (e.g. Mug 11oz)	Nombre del nuevo ajuste (p. ej. Mug 11oz)
+	No print preset named "{name}"	No hay ningún ajuste de impresión llamado «{name}»
+	Print Settings…	Ajustes de impresión…
+	Remember to turn off the printer's own colour management in Print Settings…	Recuerda desactivar la gestión de color de la propia impresora en Ajustes de impresión…
+	Save Preset	Guardar ajuste
+	Save presets from the Print dialog	Guarda ajustes desde el cuadro de diálogo Imprimir
+	Sublimation	Sublimación
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	La impresora del ajuste, «{printer}», no está instalada: elige una impresora y revisa Ajustes de impresión…
+	set in Print Settings…	definido en Ajustes de impresión…

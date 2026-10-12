@@ -3804,3 +3804,24 @@ layerLabel	No Color	Sem cor
 	(No neutral color exists for {mode} mode.)	(Não existe cor neutra para o modo {mode}.)
 	Apply mask to layer before removing?	Aplicar a máscara à camada antes de removê-la?
 	The layer or its mask changed. Drag the mask onto the Trash again.	A camada ou a máscara mudou. Arraste a máscara para a Lixeira novamente.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Adicionar sangria
+	Bleed	Sangria
+	Delete this print preset	Excluir esta predefinição de impressão
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	Não marque também Imagem espelhada em Configurações de impressão…: as duas inversões se anulam.
+	Edge Pixels	Pixels da borda
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Aumenta a tela em todos os lados continuando a imagem, com guias na linha de corte
+	Guides at the old edges	Guias nas bordas antigas
+	Last used settings	Últimas configurações usadas
+	Mirror	Espelhar
+	Mirror Image	Espelhar imagem
+	New preset name (e.g. Mug 11oz)	Nome da nova predefinição (ex.: Mug 11oz)
+	No print preset named "{name}"	Não há predefinição de impressão chamada "{name}"
+	Print Settings…	Configurações de impressão…
+	Remember to turn off the printer's own colour management in Print Settings…	Lembre-se de desativar o gerenciamento de cores da própria impressora em Configurações de impressão…
+	Save Preset	Salvar predefinição
+	Save presets from the Print dialog	Salve predefinições na caixa de diálogo Imprimir
+	Sublimation	Sublimação
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	A impressora da predefinição, "{printer}", não está instalada: escolha uma impressora e verifique Configurações de impressão…
+	set in Print Settings…	definido em Configurações de impressão…

@@ -3774,3 +3774,24 @@ cameraData	Lens	Lens
 	(No neutral color exists for {mode} mode.)	(Voor de modus {mode} bestaat geen neutrale kleur.)
 	Apply mask to layer before removing?	Masker toepassen op laag voordat het wordt verwijderd?
 	The layer or its mask changed. Drag the mask onto the Trash again.	De laag of het masker is gewijzigd. Sleep het masker opnieuw naar de prullenbak.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Afloop toevoegen
+	Bleed	Afloop
+	Delete this print preset	Deze afdrukvoorinstelling verwijderen
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	Vink in Afdrukinstellingen… niet ook Spiegelbeeld aan: de twee spiegelingen heffen elkaar op.
+	Edge Pixels	Randpixels
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Vergroot het canvas aan alle kanten, zet de afbeelding voort en plaatst hulplijnen op de snijlijn
+	Guides at the old edges	Hulplijnen op de oude randen
+	Last used settings	Laatst gebruikte instellingen
+	Mirror	Spiegelen
+	Mirror Image	Afbeelding spiegelen
+	New preset name (e.g. Mug 11oz)	Naam nieuwe voorinstelling (bijv. Mug 11oz)
+	No print preset named "{name}"	Geen afdrukvoorinstelling met de naam ‘{name}’
+	Print Settings…	Afdrukinstellingen…
+	Remember to turn off the printer's own colour management in Print Settings…	Vergeet niet het eigen kleurbeheer van de printer uit te zetten in Afdrukinstellingen…
+	Save Preset	Voorinstelling opslaan
+	Save presets from the Print dialog	Sla voorinstellingen op in het dialoogvenster Afdrukken
+	Sublimation	Sublimatie
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	De printer van de voorinstelling, ‘{printer}’, is niet geïnstalleerd: kies een printer en controleer Afdrukinstellingen…
+	set in Print Settings…	ingesteld in Afdrukinstellingen…

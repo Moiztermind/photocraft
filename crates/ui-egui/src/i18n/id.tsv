@@ -3017,3 +3017,24 @@ cameraData	Lens	Lensa
 	(No neutral color exists for {mode} mode.)	(Tidak ada warna netral untuk mode {mode}.)
 	Apply mask to layer before removing?	Terapkan masker ke layer sebelum dihapus?
 	The layer or its mask changed. Drag the mask onto the Trash again.	Layer atau maskernya berubah. Seret masker ke Tempat Sampah lagi.
+
+# Sublimation workspace, bleed and print presets
+	Add Bleed	Tambahkan Bleed
+	Bleed	Bleed
+	Delete this print preset	Hapus preset cetak ini
+	Don't also tick Mirror Image in Print Settings…: the two flips cancel out.	Jangan centang juga Mirror Image di Pengaturan Cetak…: dua pembalikan saling meniadakan.
+	Edge Pixels	Piksel Tepi
+	Grows the canvas on every side, continuing the image, with guides on the trim line	Memperbesar kanvas di setiap sisi sambil melanjutkan gambar, dengan garis bantu di garis potong
+	Guides at the old edges	Garis bantu di tepi lama
+	Last used settings	Pengaturan terakhir
+	Mirror	Cermin
+	Mirror Image	Cerminkan Gambar
+	New preset name (e.g. Mug 11oz)	Nama preset baru (mis. Mug 11oz)
+	No print preset named "{name}"	Tidak ada preset cetak bernama "{name}"
+	Print Settings…	Pengaturan Cetak…
+	Remember to turn off the printer's own colour management in Print Settings…	Ingat untuk mematikan manajemen warna printer itu sendiri di Pengaturan Cetak…
+	Save Preset	Simpan Preset
+	Save presets from the Print dialog	Simpan preset dari dialog Cetak
+	Sublimation	Sublimasi
+	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Printer preset "{printer}" tidak terpasang: pilih printer dan periksa Pengaturan Cetak…
+	set in Print Settings…	diatur di Pengaturan Cetak…

@@ -20,11 +20,13 @@ pub struct SublimationOptions {
     pub bleed_mm: f32,
     /// `edge` (stretch the outer pixels) or `mirror`.
     pub bleed_mode: String,
+    /// The print preset Print… opens with ("" = the last Print settings).
+    pub print_preset: String,
 }
 
 impl Default for SublimationOptions {
     fn default() -> Self {
-        Self { bleed_mm: 3.0, bleed_mode: "edge".into() }
+        Self { bleed_mm: 3.0, bleed_mode: "edge".into(), print_preset: String::new() }
     }
 }
 
@@ -54,6 +56,7 @@ pub fn window(app: &mut PhotocraftApp, ctx: &egui::Context) {
         .inner_margin(egui::Margin::same(10));
     let canvas = app.last_canvas_rect;
     let has_doc = app.session.active().is_some();
+    let presets = crate::print_presets_ui::names(app);
     let mut open = true;
     let mut run: Option<(&'static str, Value)> = None;
     egui::Window::new(tl!("Sublimation"))
@@ -94,11 +97,27 @@ pub fn window(app: &mut PhotocraftApp, ctx: &egui::Context) {
                     ("image.imageRotation.flipCanvasHorizontal", tl!("Mirror Image")),
                     ("edit.convertToProfile", tl!("Convert to Profile…")),
                     ("view.proofColors", tl!("Proof Colors")),
-                    ("file.print", tl!("Print…")),
                 ] {
                     if widgets::secondary_button(ui, label, WIDTH).clicked() {
                         run = Some((id, json!({})));
                     }
+                }
+            });
+            ui.add_space(6.0);
+            widgets::section_label(ui, tl!("Print"));
+            let o = &mut app.ui.sublimation;
+            if !o.print_preset.is_empty() && !presets.contains(&o.print_preset) {
+                o.print_preset.clear();
+            }
+            let mut opts: Vec<(String, &str)> = vec![(String::new(), tl!("Last used settings"))];
+            opts.extend(presets.iter().map(|n| (n.clone(), n.as_str())));
+            widgets::dropdown(ui, "subl-print-preset", &mut o.print_preset, &opts, WIDTH);
+            if presets.is_empty() {
+                ui.label(egui::RichText::new(tl!("Save presets from the Print dialog")).color(t.text_dim).size(11.0));
+            }
+            ui.add_enabled_ui(has_doc, |ui| {
+                if widgets::secondary_button(ui, tl!("Print…"), WIDTH).clicked() {
+                    run = Some(("file.print", json!({})));
                 }
             });
         });
@@ -106,6 +125,11 @@ pub fn window(app: &mut PhotocraftApp, ctx: &egui::Context) {
         app.ui.panels.sublimation = false;
     }
     if let Some((id, mut params)) = run {
+        let preset = app.ui.sublimation.print_preset.clone();
+        if id == "file.print" && !preset.is_empty() {
+            crate::print_presets_ui::open_print_with(app, &preset);
+            return;
+        }
         if params.is_null() {
             let dpi = app.session.active().map_or(300.0, |d| d.doc.resolution_dpi);
             params = bleed_params(app.ui.sublimation.bleed_mm, dpi, &app.ui.sublimation.bleed_mode);

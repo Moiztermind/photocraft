@@ -86,6 +86,7 @@ pub mod preset_import_cmds;
 pub mod preset_store;
 pub mod presets;
 pub mod print_cmds;
+pub mod print_preset_cmds;
 pub mod proof_sim;
 pub mod rasterize_style_cmds;
 pub mod redeye_cmds;

@@ -137,6 +137,7 @@ pub mod prefs_ui;
 pub mod preset_files_ui;
 pub mod preset_panels;
 pub mod press_menu;
+pub mod print_presets_ui;
 mod pressure_curve_ui;
 pub mod props_layout;
 pub mod proxy;

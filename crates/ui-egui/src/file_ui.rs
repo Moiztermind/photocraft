@@ -608,7 +608,7 @@ pub fn open_print(app: &mut PhotocraftApp) -> u64 {
 }
 
 /// Takes the paper from the printer's driver settings (Windows), as Photoshop does.
-fn driver_page(f: &mut Map<String, Value>) {
+pub(crate) fn driver_page(f: &mut Map<String, Value>) {
     let printer = s(f, "printer", "");
     let settings = f.get("printerSettings").and_then(Value::as_str).and_then(|h| photocraft_winprint::DevMode::from_hex(h).ok());
     match photocraft_winprint::page(&printer, settings.as_ref()) {
@@ -729,6 +729,7 @@ fn print_body(app: &mut PhotocraftApp, ui: &mut egui::Ui, f: &mut Map<String, Va
                 ui.label(egui::RichText::new(s).font(crate::theme::semibold(12.0)).color(t.text));
             };
             head(ui, tl!("Printer Setup"));
+            crate::print_presets_ui::row(app, ui, f);
             let printers: Option<Vec<String>> =
                 f.get("__printers").and_then(Value::as_array).map(|a| a.iter().filter_map(|v| v.as_str().map(str::to_string)).collect());
             if let Some(printers) = &printers {

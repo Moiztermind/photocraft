@@ -2980,3 +2980,7 @@ cameraData	Lens	Объектив
 	Sublimation	Сублимация
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Принтер набора «{printer}» не установлен: выберите принтер и проверьте настройки печати…
 	set in Print Settings…	задано в настройках печати…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	ИИ-увеличение 2× (быстро)
+	AI Upscale 2× (Best)	ИИ-увеличение 2× (наилучшее)

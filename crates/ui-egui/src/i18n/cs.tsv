@@ -3670,3 +3670,7 @@ navigator	Zoom	Zvětšení
 	Sublimation	Sublimace
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Tiskárna předvolby „{printer}“ není nainstalována: vyberte tiskárnu a zkontrolujte Nastavení tisku…
 	set in Print Settings…	nastaveno v Nastavení tisku…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	AI zvětšení 2× (rychlé)
+	AI Upscale 2× (Best)	AI zvětšení 2× (nejlepší)

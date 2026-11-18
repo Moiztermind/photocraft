@@ -3038,3 +3038,7 @@ cameraData	Lens	Lensa
 	Sublimation	Sublimasi
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Printer preset "{printer}" tidak terpasang: pilih printer dan periksa Pengaturan Cetak…
 	set in Print Settings…	diatur di Pengaturan Cetak…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	Perbesar AI 2× (cepat)
+	AI Upscale 2× (Best)	Perbesar AI 2× (terbaik)

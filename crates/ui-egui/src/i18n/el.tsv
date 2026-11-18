@@ -3733,3 +3733,7 @@ cameraData	Lens	Φακός
 	Sublimation	Εξάχνωση
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Ο εκτυπωτής της προεπιλογής «{printer}» δεν είναι εγκατεστημένος: επιλέξτε εκτυπωτή και ελέγξτε τις Ρυθμίσεις εκτύπωσης…
 	set in Print Settings…	ορίζεται στις Ρυθμίσεις εκτύπωσης…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	Αναβάθμιση AI 2× (γρήγορη)
+	AI Upscale 2× (Best)	Αναβάθμιση AI 2× (βέλτιστη)

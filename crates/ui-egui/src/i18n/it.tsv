@@ -2705,3 +2705,7 @@ cameraData	Lens	Obiettivo
 	Sublimation	Sublimazione
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	La stampante del predefinito, «{printer}», non è installata: scegli una stampante e controlla Impostazioni di stampa…
 	set in Print Settings…	impostato in Impostazioni di stampa…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	Ingrandimento IA 2× (veloce)
+	AI Upscale 2× (Best)	Ingrandimento IA 2× (migliore)

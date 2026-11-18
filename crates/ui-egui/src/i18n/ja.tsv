@@ -3645,3 +3645,7 @@ cameraData	Lens	レンズ
 	Sublimation	昇華転写
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	プリセットのプリンター「{printer}」がインストールされていません。プリンターを選んで確認してください: プリント設定…
 	set in Print Settings…	設定場所: プリント設定…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	AI アップスケール 2×（高速）
+	AI Upscale 2× (Best)	AI アップスケール 2×（高品質）

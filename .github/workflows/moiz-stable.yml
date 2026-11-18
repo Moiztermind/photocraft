@@ -41,11 +41,36 @@ jobs:
         env:
           CRAFT_FONTS_DIR: ${{ github.workspace }}/craft-fonts
         run: cargo build --release -p photocraft
+      # Image > AI Upscale 2x runs Real-ESRGAN (BSD-3-Clause) as a separate program from a
+      # "realesrgan" folder next to photocraft.exe. Pinned release, every file checked by hash.
+      - name: Fetch Real-ESRGAN
+        shell: pwsh
+        run: |
+          $url = "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-windows.zip"
+          Invoke-WebRequest $url -OutFile esrgan.zip
+          Expand-Archive esrgan.zip -DestinationPath esrgan-src
+          $src = (Get-ChildItem esrgan-src -Recurse -Filter realesrgan-ncnn-vulkan.exe | Select-Object -First 1).DirectoryName
+          $want = @{
+            "realesrgan-ncnn-vulkan.exe"            = "07e49f7cbb4ede01ae4dd4c399d3a7e5846e3d2085c3128eff881e55cb7b1a0c"
+            "vcomp140.dll"                          = "8f72ef2e483465444b2059fc6744d6cb22cd8d8a27f6fa56befd2a42dcd0f78b"
+            "models/realesr-animevideov3-x2.bin"    = "548a36f9c3f4ab8da56cd3b13badf23968bee207b396dad14d04b830e5f2ab2d"
+            "models/realesr-animevideov3-x2.param"  = "b88ff4f00ebf019a7fdac17fdd45a7fd3665d37509efc5baf2e4da2e24420a04"
+            "models/realesrgan-x4plus.bin"          = "713ee713b0353afaa27976f0563a64a5043bd70b9bd8936c2e26e25ebcdbcddf"
+            "models/realesrgan-x4plus.param"        = "35330ececcea33b6c397a72548e788d5d53becee4734c50b7fada36e89f10a86"
+          }
+          New-Item -ItemType Directory -Force pkg/realesrgan/models | Out-Null
+          foreach ($f in $want.Keys) {
+            $hash = (Get-FileHash (Join-Path $src $f) -Algorithm SHA256).Hash.ToLower()
+            if ($hash -ne $want[$f]) { throw "Real-ESRGAN $f hash $hash does not match" }
+            Copy-Item (Join-Path $src $f) (Join-Path pkg/realesrgan $f)
+          }
+          Copy-Item packaging/moiz/REALESRGAN-NOTICE.txt pkg/realesrgan/
       - name: Package
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force dist | Out-Null
-          Compress-Archive -Path target/release/photocraft.exe -DestinationPath dist/photocraft-windows-x64.zip
+          Copy-Item target/release/photocraft.exe pkg/
+          Compress-Archive -Path pkg/* -DestinationPath dist/photocraft-windows-x64.zip
           $hash = (Get-FileHash dist/photocraft-windows-x64.zip -Algorithm SHA256).Hash.ToLower()
           "$env:GITHUB_SHA $hash" | Out-File -Encoding ascii -NoNewline dist/stable.txt
       - uses: actions/upload-artifact@v4

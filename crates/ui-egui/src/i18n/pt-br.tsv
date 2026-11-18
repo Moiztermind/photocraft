@@ -3825,3 +3825,7 @@ layerLabel	No Color	Sem cor
 	Sublimation	Sublimação
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	A impressora da predefinição, "{printer}", não está instalada: escolha uma impressora e verifique Configurações de impressão…
 	set in Print Settings…	definido em Configurações de impressão…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	Ampliação por IA 2× (rápida)
+	AI Upscale 2× (Best)	Ampliação por IA 2× (melhor)

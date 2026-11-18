@@ -3795,3 +3795,7 @@ cameraData	Lens	Lens
 	Sublimation	Sublimatie
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	De printer van de voorinstelling, ‘{printer}’, is niet geïnstalleerd: kies een printer en controleer Afdrukinstellingen…
 	set in Print Settings…	ingesteld in Afdrukinstellingen…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	AI-opschaling 2× (snel)
+	AI Upscale 2× (Best)	AI-opschaling 2× (beste)

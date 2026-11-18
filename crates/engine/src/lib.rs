@@ -10,6 +10,7 @@
 pub mod actions_cmds;
 pub mod adjust_cmds;
 pub mod adjust_params;
+pub mod ai_upscale_cmds;
 pub mod align_cmds;
 mod allocation;
 pub mod analysis_cmds;

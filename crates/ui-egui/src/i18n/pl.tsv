@@ -3647,3 +3647,7 @@ cameraData	Lens	Obiektyw
 	Sublimation	Sublimacja
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	Drukarka ustawienia „{printer}” nie jest zainstalowana: wybierz drukarkę i sprawdź Ustawienia drukowania…
 	set in Print Settings…	ustawione w Ustawieniach drukowania…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	Skalowanie AI 2× (szybkie)
+	AI Upscale 2× (Best)	Skalowanie AI 2× (najlepsze)

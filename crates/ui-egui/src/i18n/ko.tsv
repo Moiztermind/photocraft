@@ -3218,3 +3218,7 @@ cameraData	Lens	렌즈
 	Sublimation	승화 전사
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	사전 설정의 프린터 "{printer}"가 설치되어 있지 않습니다. 프린터를 선택하고 확인하세요: 인쇄 설정…
 	set in Print Settings…	설정 위치: 인쇄 설정…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	AI 업스케일 2× (빠름)
+	AI Upscale 2× (Best)	AI 업스케일 2× (최고 품질)

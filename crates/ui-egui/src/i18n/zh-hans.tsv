@@ -2653,3 +2653,7 @@ cameraData	Lens	镜头
 	Sublimation	热升华
 	The preset's printer "{printer}" isn't installed: choose a printer and check Print Settings…	预设的打印机“{printer}”未安装:请选择打印机并检查打印设置…
 	set in Print Settings…	设置位置:打印设置…
+
+# AI Upscale (fork-only)
+	AI Upscale 2× (Fast)	AI 放大 2×（快速）
+	AI Upscale 2× (Best)	AI 放大 2×（最佳）
